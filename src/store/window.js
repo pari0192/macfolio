@@ -1,6 +1,6 @@
 import { create } from 'zustand'
-import { INITIAL_Z_INDEX, WINDOW_CONFIG } from '../constants'
 import { immer } from 'zustand/middleware/immer';
+import { INITIAL_Z_INDEX, WINDOW_CONFIG } from '../constants'
 
 const useWindowsStore = create(
     immer((set) => ({
