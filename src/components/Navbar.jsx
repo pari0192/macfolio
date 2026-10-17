@@ -9,7 +9,7 @@ const Navbar = () => {
     return (
         <nav>
             <div><img src="/images/logo.svg" alt="logo" />
-                <p className="font-bold">Braj's Portfolio</p>
+                <p className="font-bold">Pari's Portfolio</p>
 
                 <ul>
                     {navLinks.map(({ id, name }) => (
@@ -29,7 +29,7 @@ const Navbar = () => {
                     ))}
                 </ul>
 
-                <time datetime="">{dayjs().format("ddd MMM D h:mm A")}</time>
+                <time dateTime="">{dayjs().format("ddd MMM D h:mm A")}</time>
             </div>
 
         </nav>
