@@ -21,6 +21,29 @@ This project is a personal portfolio website designed to look like an Apple maco
 * any computer running windows , mac or linux
 * Any modern web browser like chorme , safari , firefox , edge
 
+## Folder Structure
+
+```
+macfolio/
+|---public/
+|   |---files/
+|   |---icons/
+|   |---images/
+|   |---screenshots/
+|---src/
+|   |---assests/
+|   |---components/
+|   |---constants/
+|   |---hoc/
+|   |---store/
+|   |---windows/
+|   |---App.jsx
+|   |---main.jsx
+|---package.json
+|---vite.config.js
+|---README.md
+```
+
 ## Instaling 
 
 * Download or clone this project form Github to your computer :
