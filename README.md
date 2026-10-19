@@ -44,7 +44,7 @@ macfolio/
 |---README.md
 ```
 
-## Instaling 
+## Installing steps
 
 * Download or clone this project form Github to your computer :
 ```git clone https://github.com/pari0192/macfolio.git```
