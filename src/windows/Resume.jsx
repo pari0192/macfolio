@@ -11,7 +11,7 @@ import 'react-pdf/dist/Page/TextLayer.css';
 import { ErrorBoundary } from 'react-error-boundary';
 
 
-pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dis@${pdfjs.version}/build/pdf.worker.min.mjs`;
+pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 
 const Resume = () => {
@@ -21,13 +21,13 @@ const Resume = () => {
                 <WindowControls target="resume" />
                 <h2>Resume.pdf</h2>
 
-                <a href="files/resume.pdf" download className='cursor-pointer' title='Download resume'>
+                <a href="/files/resume.pdf" download className='cursor-pointer' title='Download resume'>
                     <Download className='icon' />
                 </a>
             </div>
             <ErrorBoundary fallback={<p>Failed to load PDF.</p>}>
                 <Suspense fallback={<p>Loading document…</p>}>
-                    <Document file="files/resume.pdf">
+                    <Document file="/files/resume.pdf">
                         <Suspense fallback={<p>Loading page…</p>}>
                             <Page pageNumber={1}
                                 renderTextLayer

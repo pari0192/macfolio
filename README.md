@@ -58,3 +58,6 @@ macfolio/
 * start the local server
 ```npm run dev```
 
+## License
+
+This project is licensed under MIT License - see the [LICENSE](LICENSE) file for details.
