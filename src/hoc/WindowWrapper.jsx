@@ -7,8 +7,9 @@ import { Draggable } from 'gsap/Draggable';
 const WindowWrapper = (Component, windowKey) => {
     const Wrapped = (props) => {
         const { focusWindow, windows } = useWindowsStore();
-        const { isOpen, zIndex } = windows[windowKey];
+        const { isOpen, zIndex , isMaximized} = windows[windowKey];
         const ref = useRef(null);
+        const dragInstanceRef = useRef(null);
 
         useGSAP(() => {
             const el = ref.current;
@@ -26,9 +27,23 @@ const WindowWrapper = (Component, windowKey) => {
             if(!el)return;
             
             const [instance ] = Draggable.create(el, { onPress: () => focusWindow(windowKey) });
+            dragInstanceRef.current = instance;
 
             return () => instance.kill();
-        }, [])
+        }, []);
+
+        useGSAP(() => {
+            const el  = ref.current;
+            const instance = dragInstanceRef.current;
+            if (!el) return;
+
+            if(isMaximized){
+                if(instance) instance.disable();
+                gsap.to(el, { x:0 , y:0 , duration: 0.25 , ease:"power2.out"});
+            } else{
+                if(instance) instance.enable();
+            }
+        }, [isMaximized]);
 
         useLayoutEffect(() => {
             const el = ref.current;
@@ -43,7 +58,7 @@ const WindowWrapper = (Component, windowKey) => {
                 id={windowKey}
                 ref={ref}
                 style={{ zIndex }}
-                className='absolute'
+                className={`absolute transition-[width , height , top , left , border-radius] duration-300 ${isMaximized ? 'window-maximized ' : "" }`}
             >
                 <Component {...props} />
             </section>

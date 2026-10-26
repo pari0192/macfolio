@@ -19,8 +19,14 @@ const useWindowsStore = create(
             const win = state.windows[windowkey];
             if(!win) return ;
             win.isOpen = false;
+            win.isMaximized = false;
             win.zIndex = INITIAL_Z_INDEX;
             win.data = null;
+        }),
+        toggleMaximize: (windowkey) => set((state) =>{
+            const win = state.windows[windowkey];
+            if(!win) return;
+            win.isMaximized = !win.isMaximized;
         }),
         focusWindow: (windowkey) => set((state) => {
             const win = state.windows[windowkey];
